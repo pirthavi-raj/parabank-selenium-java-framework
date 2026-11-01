@@ -25,6 +25,7 @@ public class RegisterPage extends BasePage {
     private final By heading = By.cssSelector("#rightPanel h1.title");
 
     public RegisterPage(WebDriver driver){
+
         super(driver);
     }
 
