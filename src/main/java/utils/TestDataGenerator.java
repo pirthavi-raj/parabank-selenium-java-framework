@@ -30,7 +30,21 @@ public class TestDataGenerator {
                 uniqueUsername(),
                 DEFAULT_PASSWORD
         );
-
-
     }
+
+    public static Payee createPayee(String amount){
+        String accountNumber = String.valueOf(ThreadLocalRandom.current().nextInt(10000, 99999));
+        return new Payee(
+           "Electric Company",
+           "5 Power Strret",
+           "Wurzburg",
+           "Bavaria",
+           "97070",
+           "03124534500",
+           accountNumber,
+           accountNumber,
+           amount
+        );
+    }
+
 }

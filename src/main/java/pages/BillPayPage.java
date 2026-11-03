@@ -78,6 +78,18 @@ public class BillPayPage extends BasePage {
     public boolean hasError(String expectedText){
         return getErrorMessages().stream().anyMatch(message -> message.toLowerCase().contains(expectedText.toLowerCase()));
     }
+
+
+    public boolean hasValidationErrors(){
+        try{
+            wait.until(d -> !getErrorMessages().isEmpty());
+            return true;
+        }catch (TimeoutException e){
+            return false;
+        }
+    }
+
+
     }
 
 
