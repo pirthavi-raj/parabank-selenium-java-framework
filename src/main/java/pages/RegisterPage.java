@@ -10,10 +10,10 @@ import utils.User;
 public class RegisterPage extends BasePage {
 
     private final By registerLink = By.linkText("Register");
-    private final By firstName = By.id("customer.firstname");
-    private final By lastName = By.id("customer.lastname");
+    private final By firstName = By.id("customer.firstName");
+    private final By lastName = By.id("customer.lastName");
     private final By address = By.id("customer.address.street");
-    private final By city = By.id("customer.address.state");
+    private final By city = By.id("customer.address.city");
     private final By state = By.id("customer.address.state");
     private final By zipCode = By.id("customer.address.zipCode");
     private final By phone =By.id("customer.phoneNumber");
@@ -21,7 +21,7 @@ public class RegisterPage extends BasePage {
     private final By username = By.id("customer.username");
     private final By password = By.id("customer.password");
     private final By confirmPassword = By.id("repeatedPassword");
-    private final By registerButton = By.cssSelector("input[value='Register]");
+    private final By registerButton = By.cssSelector("input[value='Register']");
     private final By heading = By.cssSelector("#rightPanel h1.title");
 
     public RegisterPage(WebDriver driver){

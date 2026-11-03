@@ -48,4 +48,8 @@ public class LoginPage extends BasePage {
             return false;
         }
     }
+
+    public void logout(){
+        click(logoutLink);
+    }
 }

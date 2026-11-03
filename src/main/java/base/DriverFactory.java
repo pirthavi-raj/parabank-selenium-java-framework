@@ -40,7 +40,7 @@ public class DriverFactory {
                    driver = new ChromeDriver(chromeOptions);
                    break;
            }
-           if(headless){
+           if(!headless){
                driver.manage().window().maximize();
            }
            return driver;
