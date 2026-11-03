@@ -10,17 +10,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountOverviewPage extends BasePage {
+public class AccountsOverviewPage extends BasePage {
 
     private final By overviewLink = By.linkText("Accounts Overview");
     private final By accountTable = By.id("accountTable");
     private final By accountLinks = By.cssSelector("#accountTable tbody tr:first-child a");
 
-    public AccountOverviewPage(WebDriver driver) {
+    public AccountsOverviewPage(WebDriver driver) {
         super(driver);
     }
 
-    public AccountOverviewPage open() {
+    public AccountsOverviewPage open() {
         click(overviewLink);
         waitForVisible(accountTable);
         return this;

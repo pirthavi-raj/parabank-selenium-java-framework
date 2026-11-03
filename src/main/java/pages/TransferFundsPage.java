@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class TransferFundPage extends BasePage {
+public class TransferFundsPage extends BasePage {
 
     private final By transferLink = By.linkText("Transfer Funds");
     private final By amountField = By.id("amount");
@@ -19,12 +19,12 @@ public class TransferFundPage extends BasePage {
     private final By errorHead = By.cssSelector("#showError h1.title");
     private final By errorMessage = By.cssSelector("#showError p.error");
 
-    public TransferFundPage(WebDriver driver) {
+    public TransferFundsPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public TransferFundPage open() {
+    public TransferFundsPage open() {
         click(transferLink);
         waitForVisible(amountField);
         wait.until(d -> new Select(d.findElement(fromAccountDrop)).getOptions().size() > 0);
