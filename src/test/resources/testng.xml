@@ -5,6 +5,11 @@
         <classes>
             <class name="tests.RegistrationTest"/>
             <class name="tests.LoginLogoutTest"/>
+            <class name="tests.OpenAccountTest"/>
+            <class name="tests.TransferFundsTest"/>
+            <class name="tests.BillPayTest"/>
+            <class name="tests.FindTransactionTest"/>
+
         </classes>
     </test>
 </suite>
