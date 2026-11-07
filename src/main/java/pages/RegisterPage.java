@@ -16,7 +16,7 @@ public class RegisterPage extends BasePage {
     private final By city = By.id("customer.address.city");
     private final By state = By.id("customer.address.state");
     private final By zipCode = By.id("customer.address.zipCode");
-    private final By phone =By.id("customer.phoneNumber");
+    private final By phone = By.id("customer.phoneNumber");
     private final By ssn = By.id("customer.ssn");
     private final By username = By.id("customer.username");
     private final By password = By.id("customer.password");
@@ -24,18 +24,18 @@ public class RegisterPage extends BasePage {
     private final By registerButton = By.cssSelector("input[value='Register']");
     private final By heading = By.cssSelector("#rightPanel h1.title");
 
-    public RegisterPage(WebDriver driver){
+    public RegisterPage(WebDriver driver) {
 
         super(driver);
     }
 
-    public RegisterPage openRegisterForm(){
+    public RegisterPage openRegisterForm() {
         click(registerLink);
         waitForVisible(firstName);
         return this;
     }
 
-    public RegisterPage fillForm(User user, String confirmPasswordValue){
+    public RegisterPage fillForm(User user, String confirmPasswordValue) {
         type(firstName, user.getFirstName());
         type(lastName, user.getLastName());
         type(address, user.getAddress());
@@ -50,18 +50,18 @@ public class RegisterPage extends BasePage {
         return this;
     }
 
-    public void submit(){
+    public void submit() {
         click(registerButton);
     }
 
     // Normal registration: confirm password matches the password
-    public void register(User user){
+    public void register(User user) {
         fillForm(user, user.getPassword());
         submit();
     }
 
     // Used for the password mismatch test
-    public void register(User user, String confirmPasswordValue){
+    public void register(User user, String confirmPasswordValue) {
         fillForm(user, confirmPasswordValue);
         submit();
     }
@@ -73,13 +73,18 @@ public class RegisterPage extends BasePage {
             return false;
         }
     }
-        public String getHeadingText(){
+
+    public String getHeadingText() {
         return getText(heading);
     }
 
-    public String getFieldError(String fieldId){
-        By error =By.id(fieldId + ".errors");
-        return isDisplay(error) ? getText(error): "";
-    }
+    public String getFieldError(String fieldId) {
+        By error = By.id(fieldId + ".errors");
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(error)).getText();
+        } catch (TimeoutException e) {
+            return "";
+        }
 
+    }
 }

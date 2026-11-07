@@ -1,0 +1,11 @@
+description,firstName,lastName,address,city,state,zipCode,ssn,username,password,confirmPassword,errorFieldId,expectedError
+Missing first name,,User,12 Main Street,Wurzburg,Bavaria,97070,123456789,AUTO,Test@1234,Test@1234,customer.firstName,First name is required
+Missing last name,Test,,12 Main Street,Wurzburg,Bavaria,97070,123456789,AUTO,Test@1234,Test@1234,customer.lastName,Last name is required
+Missing address,Test,User,,Wurzburg,Bavaria,97070,123456789,AUTO,Test@1234,Test@1234,customer.address.street,Address is required
+Missing city,Test,User,12 Main Street,,Bavaria,97070,123456789,AUTO,Test@1234,Test@1234,customer.address.city,City is required
+Missing state,Test,User,12 Main Street,Wurzburg,,97070,123456789,AUTO,Test@1234,Test@1234,customer.address.state,State is required
+Missing zip code,Test,User,12 Main Street,Wurzburg,Bavaria,,123456789,AUTO,Test@1234,Test@1234,customer.address.zipCode,Zip Code is required
+Missing SSN,Test,User,12 Main Street,Wurzburg,Bavaria,97070,,AUTO,Test@1234,Test@1234,customer.ssn,Social Security Number is required
+Missing username,Test,User,12 Main Street,Wurzburg,Bavaria,97070,123456789,,Test@1234,Test@1234,customer.username,Username is required
+Missing password,Test,User,12 Main Street,Wurzburg,Bavaria,97070,123456789,AUTO,,,customer.password,Password is required
+Missing confirm password,Test,User,12 Main Street,Wurzburg,Bavaria,97070,123456789,AUTO,Test@1234,,repeatedPassword,Password confirmation is required

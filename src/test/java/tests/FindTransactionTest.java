@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FindTransactionPage;
 import pages.TransferFundsPage;
+import org.openqa.selenium.By;
 
 public class FindTransactionTest extends BaseTest {
 
@@ -25,6 +26,9 @@ public class FindTransactionTest extends BaseTest {
         FindTransactionPage findPage = new FindTransactionPage(driver);
         findPage.open();
         findPage.selectAccount(fromAccount);
+        driver.findElements(By.tagName("input")).forEach(e -> System.out.println(
+                "INPUT id=" + e.getAttribute("id") + " name=" + e.getAttribute("name")
+                        + " type=" + e.getAttribute("type") + " value=" + e.getAttribute("value")));
         findPage.findByAmount("25");
 
         Assert.assertTrue(findPage.isResultTableDisplayed(), "No result table appeared");

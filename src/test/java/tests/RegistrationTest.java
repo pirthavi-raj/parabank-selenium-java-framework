@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import base.TestHelper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -40,24 +41,18 @@ public class RegistrationTest extends BaseTest {
 
     //Registration is rejected when the username already exists
     @Test
-    public void duplicateUsernameTest(){
-         User user =TestDataGenerator.createUser();
+    public void duplicateUsernameTest() {
+        User user = TestHelper.registerNewUser(driver);
 
-         RegisterPage registerPage = new RegisterPage(driver);
-         registerPage.openRegisterForm();
-         registerPage.register(user);
-         Assert.assertTrue(registerPage.isRegistrationSuccessful(),
-                 "First registration should succeed");
+        // Log out, then try to register the same username again
+        new LoginPage(driver).logout();
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.openRegisterForm();
+        registerPage.register(user);
 
-
-    // Log out, then try to register the same username again
-     new LoginPage(driver).logout();
-     registerPage.openRegisterForm();
-     registerPage.register(user);
-
-     String error = registerPage.getFieldError("customer.username");
-     Assert.assertTrue(error.toLowerCase().contains("already exists"),
-             "Expected a duplicate username error but got '" + error + "'");
+        String error = registerPage.getFieldError("customer.username");
+        Assert.assertTrue(error.toLowerCase().contains("already exists"),
+                "Expected a duplicate username error but got: '" + error + "'");
 
 
 }

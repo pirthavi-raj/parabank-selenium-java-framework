@@ -1,0 +1,10 @@
+description,payeeName,address,city,state,zipCode,phone,accountNumber,verifyAccount,amount,expectedError
+Missing payee name,,5 Power Street,Wurzburg,Bavaria,97070,0123456789,12345,12345,20,Payee name is required
+Missing address,Electric Company,,Wurzburg,Bavaria,97070,0123456789,12345,12345,20,Address is required
+Missing city,Electric Company,5 Power Street,,Bavaria,97070,0123456789,12345,12345,20,City is required
+Missing state,Electric Company,5 Power Street,Wurzburg,,97070,0123456789,12345,12345,20,State is required
+Missing zip code,Electric Company,5 Power Street,Wurzburg,Bavaria,,0123456789,12345,12345,20,Zip Code is required
+Missing phone,Electric Company,5 Power Street,Wurzburg,Bavaria,97070,,12345,12345,20,Phone number is required
+Missing account number,Electric Company,5 Power Street,Wurzburg,Bavaria,97070,0123456789,,,20,Account number is required
+Account numbers do not match,Electric Company,5 Power Street,Wurzburg,Bavaria,97070,0123456789,12345,54321,20,match
+Missing amount,Electric Company,5 Power Street,Wurzburg,Bavaria,97070,0123456789,12345,12345,,amount
